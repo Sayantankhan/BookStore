@@ -1,6 +1,8 @@
 const express = require('express'), morgan = require('morgan');
 const app = express();
 const graphqlHTTP = require('express-graphql')
+const {EventEmitter} = require('events'), event = new EventEmitter();
+const mongoose = require('mongoose')
 
 const schema = require('./schema/schema')
 const application_config = require('./config')
@@ -13,6 +15,13 @@ app.use('/graphql',graphqlHTTP({
     graphiql: true // tool to test
 }));
 
-app.listen(application_config.port, ()=>{
-    console.log(`application is running on port ${application_config.port}`)
+mongoose.connect(application_config.dbUrl,{ useNewUrlParser: true })
+mongoose.connection.once('open',()=>{
+    event.emit('dbup')
+})
+
+event.on('dbup', ()=>{
+    app.listen(application_config.port, ()=>{
+        console.log(`application is running on port ${application_config.port}`)
+    });
 })

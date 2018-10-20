@@ -45,3 +45,11 @@
     }
   }
 }
+
+**Add an autor(mutation)**
+mutation {
+  addAnAuthor(name: "Brandon Sanderson", age: 68) {
+    name
+    age
+  }
+}

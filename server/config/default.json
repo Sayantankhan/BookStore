@@ -1,5 +1,14 @@
 {
-    "application" :{
-        "port" : 9000
+    "application":{
+        "port" : 9000,
+        "dbserver":{
+            "dbUrl":"mongodb://oathkeeper:oathkeeper123@ds237373.mlab.com:37373/sk_bookstore",
+            "dbuser" :"oathkeeper",
+            "dbpassword" : "oathkeeper123"
+        },
+        "dbcollection":{
+            "bookcollection":"bookstore_bookCollections",
+            "authorcollection":"bookstore_bookAuthor"
+        }
     }
 }
