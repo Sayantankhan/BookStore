@@ -3,12 +3,14 @@ const app = express();
 const graphqlHTTP = require('express-graphql')
 const {EventEmitter} = require('events'), event = new EventEmitter();
 const mongoose = require('mongoose')
+const cors = require('cors')
 
 const schema = require('./schema/schema')
 const application_config = require('./config')
 
 // use morgan to log requests to the console
 app.use(morgan('dev'));
+app.use(cors());
 
 app.use('/graphql',graphqlHTTP({
     schema, //schema : schema,

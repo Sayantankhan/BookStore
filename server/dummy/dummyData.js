@@ -8,7 +8,7 @@ var books = [
     {name: 'The lord Earth', genre: 'Sci-Fi', id:"4", authorId: '4'},
     {name: 'The Hero of Ages', genre: 'Fantasy', id:"5", authorId: '2'},
     {name: 'The color of Magic', genre: 'Fantasy', id:"6", authorId: '4'},
-    {name: 'The Light of Fantastic', genre: 'Fantasy', id:"7", authorId: '4'},
+    {name: 'The Light of Fantastic', genre: 'Fantasy', id:"7", authorId: '4'}
 ];
 
 // dummy data for author
